@@ -17,6 +17,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+        #1.1
+      - name: Check for pom.xml
+        run: |
+           if [ ! -f pom.xml ]; then
+            echo "pom.xml not found!"
+           exit 1
+           fi
+
+
       # 2. Устанавливаем Java
       - name: Set up Java
         uses: actions/setup-java@v3
